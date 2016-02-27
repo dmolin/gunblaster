@@ -1,0 +1,22 @@
+<template name="login">
+  <div class="template-login superfocus">
+    {{#autoForm id="LoginForm" class="loginForm" autocomplete="nope" type="normal" schema="App.Schemas.LoginForm"}}
+      <header>
+        <img class="logo" src="https://unruly.co/wp-content/themes/unruly/library/images/logo.png">
+        <h1 class="title">UnrulyGun Login</h1>
+      </header>
+      <input style="display:none" type="text" name="fakeusernameremembered"/>
+      <input style="display:none" type="password" name="fakepasswordremembered"/>
+      <div class="fieldset">
+      {{> DmInput name="username" autocomplete="false" autocapitalize="false" label="Username" autofocus="true"}}
+      {{> DmInput name="password" type="password" autocomplete="false" autocapitalize="false" label="Password" class=""}}
+      </div>
+
+      <div class="">
+        <button class="loginButton btn waves-effect waves-light" type="submit" name="action">Login
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    {{/autoForm}}
+  </div>
+</template>

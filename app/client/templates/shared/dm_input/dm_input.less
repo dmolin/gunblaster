@@ -1,0 +1,141 @@
+@import "/client/import.less";
+
+@input-height: 44px;
+
+@input-focus-bg: #D0EFFF;
+
+@input-error-bg: #FFEAEA;
+@input-error-text-color: #E45264;
+
+@input-validation-check-color: #000;
+@input-validation-cross-color: #E45264;
+
+@input-text-color: @ug-dark-blue;
+
+.template-DmInput {
+  label {
+    left: 0;
+  }
+  input {
+  }
+}
+/*
+.template-PfInput {
+  span.toggle-password-visibility {
+    z-index: 1005;
+    float: right;
+    height: @input-height;
+    margin-bottom: -@input-height;
+    text-align: center;
+    width: 30px;
+    margin-right: 5px;
+    vertical-align: middle;
+    line-height: @input-height;
+    font-size: 1.2em;
+    cursor: pointer;
+    &.make-password {
+      color: #ABC0DA;
+    }
+    &.make-text {
+      color: #044D74;
+    }
+  }
+  span.remaining-chars {
+    z-index: 1005;
+    float: right;
+    height: @input-height;
+    margin-bottom: -@input-height;
+    text-align: center;
+    width: 30px;
+    margin-right: 5px;
+    vertical-align: middle;
+    line-height: @input-height;
+    font-size: 1em;
+    color: #ABC0DA;
+  }
+  span.validation-status {
+    z-index: 1000;
+    float: right;
+    height: @input-height;
+    margin-bottom: -@input-height;
+    text-align: left;
+    width: 23px;
+    vertical-align: middle;
+    line-height: @input-height;
+    font-size: 1em;
+    color: #75C320;
+  }
+  &.has-char-count {
+    span.validation-status {
+      margin-right: 30px; //  width of remaining-chars
+    }
+    input {
+      padding-right: 50px;
+    }
+  }
+  &.type-password span.validation-status {
+    display: none;
+    margin-right: 30px; //  width of toggle-password-visibility
+  }
+  input {
+    height: @input-height;
+    color: @input-text-color;
+    box-shadow: none !important;
+    border-width: 0;
+    transition: background-color 0.15s ease-in-out;
+    margin: 0 0 9px;
+    line-height: @input-height;
+    border-radius: 8px;
+    padding-right: 23px; // width of validation-status
+    &:focus, &.active {
+      background-color: @input-focus-bg !important;
+    }
+    //Way around for the date input placeholder functionality
+    &[type="date"]{
+      line-height: 1em !important;
+      -webkit-appearance: none;
+      &:before {
+        content: attr(placeholder);
+        color: #AABED8;;
+        margin-right: 0.5em;
+      }
+      &:focus:before,
+      &:valid:before{
+        content: "";
+        position: absolute;
+      }
+    }
+    &[type=number]{
+      padding:0px 12px;
+      line-height: 42px;
+    }
+    &[type=month]{
+      padding-top :5px;
+      padding-bottom: 5px;
+      line-height: 36px !important;
+    }
+  }
+  &.type-password input {
+    padding-right: 53px; //width of validation-status + toggle-password-visibility
+  }
+  label {
+    input[type=checkbox] {
+      margin-top: 3px;
+    }
+  }
+  &.has-error {
+    .validation-status {
+      color: @input-validation-cross-color;
+    }
+    input, input:focus, input:active {
+      background-color: @input-error-bg;
+      color: @input-error-text-color;
+    }
+    .checkbox {
+      label, a {
+        color: @input-error-text-color;
+      }
+    }
+  }
+}
+*/

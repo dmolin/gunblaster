@@ -1,0 +1,34 @@
+<template name="DmInput">
+  <div class="input-field template-DmInput {{#if afFieldIsInvalid name=name}}has-error{{/if}}{{#if isPasswordType}} type-password{{/if}}">
+    {{#if label}}
+      <label for="{{id}}">{{label}}</label>
+    {{/if}}
+    {{#if showValidationSymbol}}
+      <span class="validation-status fa {{#if afFieldIsInvalid name=name}}fa-times{{else}}{{#if hasContent}}fa-check{{/if}}{{/if}}"></span>
+    {{/if}}
+    {{#if isPasswordType}}
+      <span class="toggle-password-visibility fa {{#if isPasswordTypeVisible}}make-password fa-eye-slash{{else}}make-text fa-eye{{/if}}"></span>
+    {{/if}}
+    {{> afFieldInput
+      id=id
+      name=name
+      pattern=pattern
+      placeholder=placeholder
+      class=class
+      type=type
+      value=value
+      defaultValue=defaultValue
+      label=label
+      trueLabel=trueLabel
+      falseLabel=falseLabel
+      template=template
+      autocomplete=autocomplete
+      autocapitalize=autocapitalize
+    }}
+  </div>
+  <div>
+    {{#if afFieldIsInvalid name=name}}
+      <span class="help-block">{{{afFieldMessage name=name}}}</span>
+    {{/if}}
+  </div>
+</template>

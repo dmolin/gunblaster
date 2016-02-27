@@ -1,0 +1,5 @@
+App = {
+  Router:{},
+  Schemas:{},
+  controllers:{}
+};
