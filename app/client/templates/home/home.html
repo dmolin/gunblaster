@@ -1,6 +1,5 @@
 <template name="Home">
   <div class="template-home">
-    <!-- Dropdown Structure -->
     <ul id="dropdown1" class="dropdown-content">
       <li><a href="#!">one</a></li>
       <li><a href="#!">two</a></li>
@@ -10,21 +9,20 @@
     <nav>
       <div class="nav-wrapper">
         <a href="#" class="brand-logo center">
-          <i class="material-icons email left">email</i> UnrulyGun
+          <i class="material-icons email left">email</i> GunBlaster
         </a>
         <ul class="right nav-items">
           <!-- Dropdown Trigger -->
           <li>
-            <a class="dropdown-button" href="#!" data-activates="dropdown1">
-              <i class="material-icons left">perm_identity</i>{{username}}
-              <i class="material-icons right">arrow_drop_down</i>
-            </a>
+            <i class="material-icons left">perm_identity</i>
+            {{username}}
+            <a class="logout right"><i class="material-icons">power_settings_new</i></a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <div class="ug-padding row">
+    <div class="gun-content row">
       <div class="col s4">
         list
       </div>
