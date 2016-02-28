@@ -1,5 +1,37 @@
 <template name="Home">
   <div class="template-home">
-    <h1>Find me in app/client/templates/home/home</h1>
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="#!">one</a></li>
+      <li><a href="#!">two</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">three</a></li>
+    </ul>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">
+          <i class="material-icons email left">email</i> UnrulyGun
+        </a>
+        <ul class="right nav-items">
+          <!-- Dropdown Trigger -->
+          <li>
+            <a class="dropdown-button" href="#!" data-activates="dropdown1">
+              <i class="material-icons left">perm_identity</i>{{username}}
+              <i class="material-icons right">arrow_drop_down</i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="ug-padding row">
+      <div class="col s4">
+        list
+      </div>
+
+      <div class="col s8">
+        email body
+      </div>
+    </div>
   </div>
 </template>

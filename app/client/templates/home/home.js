@@ -8,6 +8,9 @@ Template.Home.events({
 /* Home: Helpers */
 /*****************************************************************************/
 Template.Home.helpers({
+  username: function() {
+    return Meteor.user() && Meteor.user().username || "-"
+  }
 });
 
 /*****************************************************************************/
