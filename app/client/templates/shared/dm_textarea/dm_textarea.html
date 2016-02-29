@@ -1,0 +1,26 @@
+<template name="DmTextarea">
+  {{#if label}}
+    <label for="{{id}}">{{label}}</label>
+  {{/if}}
+  {{> afFieldInput
+    id=id
+    name=name
+    pattern=pattern
+    placeholder=placeholder
+    class=class
+    type='textarea'
+    value=value
+    defaultValue=defaultValue
+    label=label
+    trueLabel=trueLabel
+    falseLabel=falseLabel
+    template=template
+    autocomplete=autocomplete
+    autocapitalize=autocapitalize
+  }}
+  <div>
+    {{#if afFieldIsInvalid name=name}}
+      <span class="help-block">{{{afFieldMessage name=name}}}</span>
+    {{/if}}
+  </div>
+</template>

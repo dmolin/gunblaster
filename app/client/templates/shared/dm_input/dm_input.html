@@ -1,5 +1,5 @@
 <template name="DmInput">
-  <div class="input-field template-DmInput {{#if afFieldIsInvalid name=name}}has-error{{/if}}{{#if isPasswordType}} type-password{{/if}}">
+  <div class="input-field template-DmInput {{dmclass}} {{#if afFieldIsInvalid name=name}}has-error{{/if}}{{#if isPasswordType}} type-password{{/if}}">
     {{#if label}}
       <label for="{{id}}">{{label}}</label>
     {{/if}}

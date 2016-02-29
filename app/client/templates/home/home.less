@@ -4,11 +4,59 @@
 /* Home: Style */
 /*****************************************************************************/
 .template-home {
+  height: 100vh;
+  position: relative;
+
+  .brand-logo {
+    margin-left: 0.5em;
+  }
+
   .nav-items {
     padding-right:1em;
   }
 
   .gun-content {
+    position: absolute;
+    top: 64px;
+    bottom: 0;
+    width: 100%;
     padding: @ug-padding;
   }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 100%;
+  }
+
+  .address-list-wrapper {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+
+    > label {
+
+    }
+  }
+
+  .mail-wrapper {
+    display: flex;
+    flex-grow: 1;
+    padding-left: @ug-padding;
+    flex-direction: column;
+  }
+
+  .mail-content {
+  }
+
+  .mail-actions {
+    margin: 1em 0 0;
+  }
+
+  textarea {
+    flex: 1;
+    padding: 0.5em;
+  }
+
 }
