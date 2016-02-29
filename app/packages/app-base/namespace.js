@@ -1,5 +1,6 @@
 App = {
   Router:{},
   Schemas:{},
-  controllers:{}
+  controllers:{},
+  collections:{}
 };

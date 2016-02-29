@@ -13,6 +13,13 @@ Template.Home.events({
 Template.Home.helpers({
   username: function() {
     return Meteor.user() && Meteor.user().username || "-"
+  },
+  senderEmail: userEmail,
+  userImageUrl: function() {
+    return Gravatar.imageUrl(userEmail(), {
+      size: 34,
+      default: 'mm'
+    });
   }
 });
 
@@ -32,18 +39,19 @@ AutoForm.hooks({
   MailBlastForm: {
     onSubmit: function(validDoc, updateDoc, currentDoc) {
       var form = this;
+      App.Schemas.MailBlastForm.clean(validDoc);
       console.log("ready to blast!");
       //call server to send email blast
-      Meteor.call("mailblast/send", validDoc, function(err, result) {
-        form.done();
+      Meteor.call("mailblast/send", MethodsHelper.uniqueReferenceIdParam(), validDoc, function(err, result) {
         if(err) {
-          alert(err);
+          form.done(err);
+          swal("Oops", err, "error");
           return;
         }
-
-        alert("Your email blast was sent. You can follow its progress in the 'Blast History' page");
-        //clear the form
-        form.resetForm();
+        form.done();
+        swal("Done!", "Your email blast was sent. You can follow its progress in the 'Blast History' page", "success");
+        //remove email addresses
+        form.template.$('[name=emails]').val('');
       });
 
       return false;
@@ -52,4 +60,9 @@ AutoForm.hooks({
       console.log(error);
     }
   }
-})
+});
+
+function userEmail() {
+  var user = Meteor.user();
+  return user && user.emails && user.emails[0].address || "";
+}

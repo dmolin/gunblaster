@@ -3,12 +3,12 @@
     <nav>
       <div class="nav-wrapper">
         <a href="#" class="brand-logo left">
-          <i class="material-icons email left">email</i> GunBlaster
+          <i class="material-icons email left">email</i>New GunBlaster
         </a>
         <ul class="right nav-items">
           <!-- Dropdown Trigger -->
-          <li>
-            <i class="material-icons left">perm_identity</i>
+          <li class="valign-wrapper">
+            <img class="avatar-image" src="{{userImageUrl}}">
             {{username}}
             <a class="logout right"><i class="material-icons">power_settings_new</i></a>
           </li>
@@ -16,15 +16,16 @@
       </div>
     </nav>
 
-    {{#autoForm id="MailBlastForm" class="mailBlastForm" autocomplete="nope" type="normal" schema="App.Schemas.MailBlastForm"}}
+    {{#autoForm id="MailBlastForm" class="mailBlastForm" autocomplete="off" type="normal" schema="App.Schemas.MailBlastForm" resetOnSuccess=false}}
     <div class="gun-content">
       <div class="content-wrapper">
           <aside class="address-list-wrapper">
-            {{> DmTextarea name="emails" label="Emails List" class="vstretched" }}
+            {{> DmTextarea name="emails" label="Emails List" class="vstretched"}}
           </aside>
 
           <div class="mail-wrapper">
-              {{> DmInput name="from" autocomplete="false" autocapitalize="false" label="From" autofocus="true"}}
+              <label>From</label>
+              <span class="mailfrom">{{senderEmail}}</span>
               {{> DmInput name="subject" label="Subject"}}
               <!--<label>Mail Content</label>-->
               <!--<textarea name="content" class="form-control mail-content" required-data-schema-key="content"></textarea>-->

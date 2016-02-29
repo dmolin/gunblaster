@@ -17,6 +17,7 @@ es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 app-base
+methods-idempotence
 
 iron:router
 ongoworks:google-spreadsheets
@@ -36,3 +37,7 @@ aldeed:autoform
 materialize:materialize
 less
 check
+zimme:collection-softremovable
+jparker:gravatar
+percolate:synced-cron
+momentjs:moment
