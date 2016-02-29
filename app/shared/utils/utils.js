@@ -1,5 +1,3 @@
-App.Utils = {
-  uniqueId: function() {
-    return new Mongo.ObjectID().toHexString();
-  }
+App.Utils.uniqueId = function() {
+  return new Mongo.ObjectID().toHexString();
 };

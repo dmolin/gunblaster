@@ -14,5 +14,6 @@ Package.onUse(function (api) {
 
   api.addFiles('namespace.js');
   api.addFiles('route_config.js');
+  api.addFiles('client_utils.js', 'client');
   api.export('App');
 });

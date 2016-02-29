@@ -1,3 +1,9 @@
+Router.configure({
+  layoutTemplate: 'MasterLayout',
+  loadingTemplate: 'Loading',
+  notFoundTemplate: 'NotFound'
+});
+
 App.Router.plugins.login = {
   loginRequired: function(route) {
     console.log(route);
@@ -39,6 +45,7 @@ Router.route('/login', {
 
 Router.route('/', {
   name: 'home',
-  controller: 'HomeController'
+  controller: 'HomeController',
+  layoutTemplate: 'LoggedIn'
 });
 

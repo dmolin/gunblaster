@@ -1,0 +1,28 @@
+<template name="LoggedIn">
+  <div class="layout-loggedIn">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo left">
+          <i class="material-icons email left">email</i>GunBlaster
+        </a>
+        <ul class="right nav-items">
+          <!-- Dropdown Trigger -->
+          <li class="valign-wrapper">
+            <img class="avatar-image" src="{{userImageUrl}}">
+            {{username}}
+            <a class="logout right"><i class="material-icons">power_settings_new</i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="subnav">
+      <ul class="left nav-items valign-wrapper">
+        <li class="valign">
+          <a class=""><i class="left material-icons">message</i>New GunBlaster</a>
+        </li>
+      </ul>
+    </nav>
+
+    {{> yield}}
+  </div>
+</template>

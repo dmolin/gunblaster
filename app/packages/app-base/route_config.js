@@ -1,8 +1,4 @@
-Router.configure({
-  layoutTemplate: 'MasterLayout',
-  loadingTemplate: 'Loading',
-  notFoundTemplate: 'NotFound'
-});
+
 
 App.Router = {
   plugins:{},

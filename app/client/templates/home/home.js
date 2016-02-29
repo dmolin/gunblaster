@@ -2,24 +2,15 @@
 /* Home: Event Handlers */
 /*****************************************************************************/
 Template.Home.events({
-  'click .logout': function() {
-    Accounts.logout();
-  }
+
 });
 
 /*****************************************************************************/
 /* Home: Helpers */
 /*****************************************************************************/
 Template.Home.helpers({
-  username: function() {
-    return Meteor.user() && Meteor.user().username || "-"
-  },
-  senderEmail: userEmail,
-  userImageUrl: function() {
-    return Gravatar.imageUrl(userEmail(), {
-      size: 34,
-      default: 'mm'
-    });
+  senderEmail: function() {
+    return App.Utils.currentUserEmail();
   }
 });
 
@@ -61,8 +52,3 @@ AutoForm.hooks({
     }
   }
 });
-
-function userEmail() {
-  var user = Meteor.user();
-  return user && user.emails && user.emails[0].address || "";
-}
