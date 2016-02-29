@@ -16,7 +16,7 @@ AutoForm.hooks({
         } else {
           Meteor.logoutOtherClients();
           form.done();
-          Router.go('home');
+          Router.go('newBlaster');
         }
       });
       return false;

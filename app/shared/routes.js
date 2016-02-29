@@ -1,28 +1,20 @@
 Router.configure({
-  layoutTemplate: 'MasterLayout',
+  layoutTemplate: 'LoggedIn',
   loadingTemplate: 'Loading',
   notFoundTemplate: 'NotFound'
 });
 
 App.Router.plugins.login = {
   loginRequired: function(route) {
-    console.log(route);
     if(!Meteor.userId()) {
-      //App.Router.stack.push(route);
-      //this.render('login');
       Router.go('login');
     } else {
-      //if there's something in the route stack, pop it and go there
-      if(App.Router.stack.length) {
-        Router.go(App.Router.stack.shift().url);
-      } else {
-        this.next();
-      }
+      this.next();
     }
   },
   homeIfLogged: function(route) {
     if(Meteor.userId()) {
-      Router.go('home')
+      Router.go('newBlaster')
     } else {
       this.next();
     }
@@ -30,7 +22,7 @@ App.Router.plugins.login = {
 };
 
 Router.onBeforeAction(App.Router.plugins.login.loginRequired, {
-  only: ['home']
+  only: ['newBlaster']
 });
 
 Router.onBeforeAction(App.Router.plugins.login.homeIfLogged, {
@@ -40,12 +32,12 @@ Router.onBeforeAction(App.Router.plugins.login.homeIfLogged, {
 // Log in route
 Router.route('/login', {
   name: 'login',
-  controller: 'App.controllers.LoginController'
+  controller: 'App.controllers.LoginController',
+  layoutTemplate: "MasterLayout"
 });
 
-Router.route('/', {
-  name: 'home',
-  controller: 'HomeController',
-  layoutTemplate: 'LoggedIn'
+Router.route('/new', {
+  name: 'newBlaster',
+  controller: 'App.controllers.NewBlasterController'
 });
 

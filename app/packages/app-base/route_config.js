@@ -7,7 +7,7 @@ App.Router = {
 
 //function ensureNoAuth () {
 //  if (Meteor.userId()) {
-//    Router.go('home');
+//    Router.go('new');
 //  } else {
 //    this.next();
 //  }

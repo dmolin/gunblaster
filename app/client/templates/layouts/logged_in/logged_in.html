@@ -3,7 +3,7 @@
     <nav>
       <div class="nav-wrapper">
         <a href="#" class="brand-logo left">
-          <i class="material-icons email left">email</i>GunBlaster
+          <i class="material-icons email left">email</i>GunBlaster {{#if currentRoute}}<span class="current-route">&gt; {{currentRoute}}</span>{{/if}}
         </a>
         <ul class="right nav-items">
           <!-- Dropdown Trigger -->
@@ -18,7 +18,10 @@
     <nav class="subnav">
       <ul class="left nav-items valign-wrapper">
         <li class="valign">
-          <a class=""><i class="left material-icons">message</i>New GunBlaster</a>
+          <a href="/new"><i class="left material-icons">message</i>New GunBlaster</a>
+        </li>
+        <li class="valign">
+          <a href="/history"><i class="left material-icons">assessment</i>History</a>
         </li>
       </ul>
     </nav>

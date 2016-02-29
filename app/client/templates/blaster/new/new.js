@@ -1,14 +1,14 @@
 /*****************************************************************************/
 /* Home: Event Handlers */
 /*****************************************************************************/
-Template.Home.events({
+Template.NewBlaster.events({
 
 });
 
 /*****************************************************************************/
 /* Home: Helpers */
 /*****************************************************************************/
-Template.Home.helpers({
+Template.NewBlaster.helpers({
   senderEmail: function() {
     return App.Utils.currentUserEmail();
   }
@@ -17,13 +17,13 @@ Template.Home.helpers({
 /*****************************************************************************/
 /* Home: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Home.onCreated(function () {
+Template.NewBlaster.onCreated(function () {
 });
 
-Template.Home.onRendered(function () {
+Template.NewBlaster.onRendered(function () {
 });
 
-Template.Home.onDestroyed(function () {
+Template.NewBlaster.onDestroyed(function () {
 });
 
 AutoForm.hooks({

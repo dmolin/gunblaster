@@ -1,4 +1,4 @@
-HomeController = RouteController.extend({
+App.controllers.BlasterHistoryController = RouteController.extend({
   
   // a place to put your subscriptions
   // this.subscribe('items');
@@ -35,7 +35,7 @@ HomeController = RouteController.extend({
     this.next();
   },
   onBeforeAction: function () {
-    console.log("HomeController:onBeforeAction");
+    App.Router.currentRoute = "Blaster History";
     this.next();
   },
   
