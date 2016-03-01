@@ -1,8 +1,7 @@
-
-
 App.Router = {
   plugins:{},
-  stack: []
+  stack: [],
+  currentRoute: new ReactiveVar()
 };
 
 //function ensureNoAuth () {

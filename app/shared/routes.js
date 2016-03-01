@@ -41,3 +41,7 @@ Router.route('/new', {
   controller: 'App.controllers.NewBlasterController'
 });
 
+Router.route('/history', {
+  name: 'blasterHistory',
+  controller: 'App.controllers.BlasterHistoryController'
+});

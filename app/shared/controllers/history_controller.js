@@ -35,7 +35,7 @@ App.controllers.BlasterHistoryController = RouteController.extend({
     this.next();
   },
   onBeforeAction: function () {
-    App.Router.currentRoute = "Blaster History";
+    App.Router.currentRoute.set("Blaster History");
     this.next();
   },
   

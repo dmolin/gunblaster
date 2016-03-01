@@ -1,3 +1,3 @@
 Template.registerHelper('currentRoute', function() {
-  return App.Router.currentRoute;
+  return App.Router.currentRoute.get();
 });

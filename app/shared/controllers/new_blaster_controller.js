@@ -35,7 +35,7 @@ App.controllers.NewBlasterController = RouteController.extend({
     this.next();
   },
   onBeforeAction: function () {
-    App.Router.currentRoute = "New Mail Blaster";
+    App.Router.currentRoute.set("New Mail Blaster");
     this.next();
   },
   
