@@ -1,4 +1,4 @@
-App.controllers.BlasterHistoryController = RouteController.extend({
+App.controllers.BlasterHistoryController = App.controllers.BaseController.extend({
   
   // a place to put your subscriptions
   // this.subscribe('items');

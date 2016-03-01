@@ -1,4 +1,4 @@
-App.controllers.NewBlasterController = RouteController.extend({
+App.controllers.NewBlasterController = App.controllers.BaseController.extend({
   
   // a place to put your subscriptions
   // this.subscribe('items');
@@ -35,6 +35,7 @@ App.controllers.NewBlasterController = RouteController.extend({
     this.next();
   },
   onBeforeAction: function () {
+    console.log("NewBlasterController:onBeforeAction");
     App.Router.currentRoute.set("New Mail Blaster");
     this.next();
   },

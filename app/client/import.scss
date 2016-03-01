@@ -1,0 +1,29 @@
+// SUPER IMPORTANT
+// This file should not result in any output CSS when compiled. Strictly imports only
+
+/////////////
+// COLOURS //
+/////////////
+$ug-dark-blue: #0a4e73;
+$ug-superlight-blue: #EBF6FE;
+
+///////////////////////
+// MEASURE VARIABLES //
+//////////////////////
+$ug-padding: 16px;
+$ug-padding-lg: 32px;
+
+///////////////////////////////
+// APPLICATION-WIDE MEASURES //
+///////////////////////////////
+$ug-header-height: 100px;
+
+@import "{poetic:materialize-scss}/sass/components/_color.scss";
+
+//$primary-color: color("blue", "lighten-2");
+//$secondary-color: color(")
+
+$primary-color: #ee6e73;
+$secondary-color: color("blue", "darken-1");
+
+@import "{poetic:materialize-scss}/sass/materialize.scss";

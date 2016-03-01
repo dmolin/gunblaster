@@ -14,7 +14,7 @@ App.Router.plugins.login = {
   },
   homeIfLogged: function(route) {
     if(Meteor.userId()) {
-      Router.go('newBlaster')
+      Router.go('blasterHistory')
     } else {
       this.next();
     }
@@ -22,7 +22,7 @@ App.Router.plugins.login = {
 };
 
 Router.onBeforeAction(App.Router.plugins.login.loginRequired, {
-  only: ['newBlaster']
+  except: ['login']
 });
 
 Router.onBeforeAction(App.Router.plugins.login.homeIfLogged, {
@@ -45,3 +45,5 @@ Router.route('/history', {
   name: 'blasterHistory',
   controller: 'App.controllers.BlasterHistoryController'
 });
+
+Router.route('/', function() { Router.go("blasterHistory"); });

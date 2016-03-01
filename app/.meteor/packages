@@ -34,10 +34,11 @@ http
 reactive-var
 reactive-dict
 aldeed:autoform
-materialize:materialize
 less
 check
 zimme:collection-softremovable
 jparker:gravatar
 percolate:synced-cron
 momentjs:moment
+fourseven:scss
+poetic:materialize-scss

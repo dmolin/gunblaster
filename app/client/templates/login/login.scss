@@ -1,7 +1,7 @@
-@import "/client/import.less";
+@import "{}/client/import.scss";
 
 body.login {
-  background-color: @ug-superlight-blue;
+  background-color: $ug-superlight-blue;
 }
 
 .superfocus {
@@ -35,7 +35,7 @@ body.login {
   }
 
   .fieldset {
-    padding-top: @ug-padding;
+    padding-top: $ug-padding;
   }
 
   & > img {
