@@ -50,7 +50,7 @@ AutoForm.hooks({
 
 Template.login.onRendered(function() {
   function setBgUrl() {
-    var categories = ["nightlife", "people", "city", "people", "technics", "transport"];
+    var categories = ["city", "technics", "transport"];
     var bg = bgUrl1Class.get() === "fadein" ? bgUrl2 : bgUrl1;
     var catIdx = _getRandomInt(0, categories.length-1);
     bg.set("http://lorempixel.com/g/1920/1080/" + categories[catIdx] + "/?t=" + Date.now());
