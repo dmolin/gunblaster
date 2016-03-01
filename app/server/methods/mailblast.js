@@ -52,7 +52,7 @@ Meteor.methods({
       App.collections.EmailBlasts.insert({
         _id: blastId,
         status: 'queued',   //in-progress completed with-errors
-        from: user.emails[0],
+        from: user.emails[0].address,
         subject: data.subject,
         content: data.content
       }, {validate:false, bypassCollection2:true});

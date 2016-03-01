@@ -1,5 +1,16 @@
 <template name="BlasterHistory">
-  <div class="template-BlasterHistory">
+  <div class="template-BlasterHistory content-area">
+    <header>
+      <h1>Latest Mail Blasts</h1>
+    </header>
 
+    {{#if isEmpty}}
+      <div class="center">
+        <p>No previous blasters yet.</p>
+
+        <button>Create a new one!</button>
+      </div>
+
+    {{/if}}
   </div>
 </template>
