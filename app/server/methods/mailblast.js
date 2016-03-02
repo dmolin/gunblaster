@@ -54,7 +54,7 @@ Meteor.methods({
     try {
       App.collections.EmailBlasts.insert({
         _id: blastId,
-        status: 'queued',   //in-progress completed with-errors
+        status: toSend > 0 ? 'queued' : 'with-errors',   //[queued, in-progress, completed, with-errors]
         emails: data.emails.length,
         valid: toSend,
         sent: 0,

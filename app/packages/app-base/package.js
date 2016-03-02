@@ -7,6 +7,8 @@ Package.onUse(function (api) {
   api.versionsFrom('1.2');
 
   api.use([
+    'templating',
+    'momentjs:moment',
     'iron:router',
     'reactive-var',
     'reactive-dict'

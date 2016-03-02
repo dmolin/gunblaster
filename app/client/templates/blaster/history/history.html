@@ -1,9 +1,9 @@
 <template name="BlasterHistory">
-  <div class="template-BlasterHistory content-area">
+  <div class="template-BlasterHistory content-area content-wrapper">
     <header>
       <h1>Latest Mail Blasts</h1>
       <div class="history-actions">
-        <a href="{{pathFor 'blaster/new'}}" class="btn right"><i class="material-icons left">playlist_add</i>Create</a>
+        <a href="{{pathFor 'blaster/new'}}" class="btn waves-effect waves-light right"><i class="material-icons left">playlist_add</i>Create</a>
       </div>
     </header>
 
@@ -11,7 +11,7 @@
       <div class="center">
         <p class="cta important capital">No previous blasters yet.</p>
 
-        <button class="btn"><i class="material-icons left">playlist_add</i>Create a new one!</button>
+        <button class="btn waves-effect waves-light"><i class="material-icons left">playlist_add</i>Create a new one!</button>
       </div>
     {{else}}
       <div class="blaster-header collection-item">
@@ -36,8 +36,11 @@
 
       <div class="collection blaster-body">
       {{#each blasts}}
-        <a class="collection-item">
+        <a class="collection-item" href="{{pathFor 'blaster/view' id=_id }}">
           <div class="collection-item-col blaster-status status--{{status}}">
+            {{#if equals status 'queued' }}
+              <i class="material-icons">alarm_on</i>
+            {{/if}}
             {{#if equals status 'completed'}}
               {{#if equals valid delivered}}
                 <i class="material-icons">done</i>
@@ -48,7 +51,9 @@
             {{#if equals status 'in-progress'}}
               <i class="material-icons">loop</i>
             {{/if}}
-            {{statusIcon}}
+            {{#if equals status 'with-errors'}}
+              <i class="material-icons">error_outline</i>
+            {{/if}}
           </div>
           <div class="collection-item-col blaster-date">
             {{formatDate createdAt}}

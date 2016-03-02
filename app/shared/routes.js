@@ -53,4 +53,9 @@ Router.route('/history', {
   controller: 'App.controllers.BlasterHistoryController'
 });
 
+Router.route('/view/:id', {
+  name: 'blaster/view',
+  controller: 'App.controllers.BlasterViewController'
+});
+
 Router.route('/', function() { Router.go("blaster/history"); });

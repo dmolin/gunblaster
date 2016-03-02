@@ -10,7 +10,7 @@
   }
 
   .history-actions {
-    margin-top:1em;
+    margin-top:0.5em;
     flex-grow: 1;
     justify-content: flex-end;
 
@@ -46,7 +46,7 @@
   }
 
   .status--with-errors {
-    background-color: color("red", "darken-1");
+    background-color: color("deep-orange", "accent-2");
   }
 
   .blaster-header {

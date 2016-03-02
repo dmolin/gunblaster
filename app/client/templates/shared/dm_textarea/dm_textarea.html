@@ -1,6 +1,6 @@
 <template name="DmTextarea">
   {{#if label}}
-    <label for="{{id}}">{{label}}</label>
+    <label for="{{id}}">{{#if labelIcon}}<i class="textarea-icon material-icons">{{labelIcon}}</i>{{/if}}{{label}}</label>
   {{/if}}
   {{> afFieldInput
     id=id

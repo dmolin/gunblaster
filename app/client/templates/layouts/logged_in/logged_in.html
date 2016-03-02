@@ -1,20 +1,20 @@
 <template name="LoggedIn">
   <div class="layout-loggedIn">
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper content-wrapper">
         <a href="#" class="brand-logo left">
           <i class="material-icons email left">email</i>GunBlaster {{#if currentRoute}}<span class="current-route">&gt; {{currentRoute}}</span>{{/if}}
         </a>
         <ul class="right nav-items">
           <!-- Dropdown Trigger -->
           <li class="valign-wrapper">
-            <img class="avatar-image" src="{{userImageUrl}}">
-            {{username}}
+            {{> Gravatar}}
+            {{capitalize username}}
           </li>
         </ul>
       </div>
     </nav>
-    <nav class="subnav">
+    <nav class="subnav content-wrapper">
       <ul class="left nav-items valign-wrapper">
         <li class="valign">
           <a href="{{pathFor 'blaster/history'}}"><i class="left material-icons">assessment</i>History</a>
