@@ -1,10 +1,10 @@
 /*****************************************************************************/
 /* History: Event Handlers */
 /*****************************************************************************/
-Template.BlasterHistory.events({
+Template.BlasterView.events({
   'click [data-id=delete-blast]': function(event) {
     event.preventDefault();
-    var blastId = $(event.currentTarget).data('blast-id');
+    var blastId = Template.instance().data.id;
     console.log("Deleting blast " + blastId);
     swal({
       title: 'Are you sure?',
@@ -21,33 +21,59 @@ Template.BlasterHistory.events({
             return;
           }
           swal.close();
+          Router.go('blaster/history');
         });
       }
     });
   }
-
 });
 
 /*****************************************************************************/
 /* History: Helpers */
 /*****************************************************************************/
-Template.BlasterHistory.helpers({
-  blasts: function() {
-    return App.collections.EmailBlasts.find({createdBy: Meteor.userId()}, {sort: { createdAt:-1 }});
+Template.BlasterView.helpers({
+  statusIcon: function() {
+    var email = this;
+    var outcome = '';
+
+    switch(email.status) {
+      case 'delivered':
+        outcome = 'done';
+        break;
+      case 'sent':
+        outcome = email.delivered ? 'done' : 'error_outline';
+        break;
+      case 'queued':
+        outcome = 'alarm_on';
+        break;
+      case 'not-sent':
+        outcome = 'error_outline';
+        break;
+      case 'not-delivered':
+        outcome = 'error_outline';
+        break;
+    }
+
+    return outcome;
   },
-  isEmpty: function() {
-    return App.collections.EmailBlasts.find({createdBy: Meteor.userId()}).count() === 0;
+  sentDateOrError: function() {
+    var email = this;
+
+    if(email.status !== 'not-sent') {
+      return moment(email.createdAt).format('DD-MM-YYYY HH:mm:ss');
+    }
+    return "not sent";
   }
 });
 
 /*****************************************************************************/
 /* History: Lifecycle Hooks */
 /*****************************************************************************/
-Template.BlasterHistory.onCreated(function () {
+Template.BlasterView.onCreated(function () {
 });
 
-Template.BlasterHistory.onRendered(function () {
+Template.BlasterView.onRendered(function () {
 });
 
-Template.BlasterHistory.onDestroyed(function () {
+Template.BlasterView.onDestroyed(function () {
 });

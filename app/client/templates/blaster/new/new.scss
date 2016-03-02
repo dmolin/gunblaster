@@ -10,14 +10,13 @@
   }
 
   .content-header {
-    padding: $ug-padding $ug-padding 0;
-    h1 { margin: 0 !important; }
   }
 
   .content-body {
     display: flex;
     flex-direction: row;
     flex: 1;
+    max-height:800px;
   }
 
   .gun-content {
@@ -52,7 +51,7 @@
   }
 
   .mail-actions {
-    margin: 1em 0 0;
+    padding-top: 0;
   }
 
   .mailfrom {

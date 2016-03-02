@@ -1,15 +1,20 @@
 <template name="BlasterNew">
   <div class="template-newBlaster">
-    {{#autoForm id="MailBlastForm" class="mailBlastForm" autocomplete="off" type="normal" schema="App.Schemas.MailBlastForm" resetOnSuccess=false}}
+    {{#autoForm id="MailBlastForm" class="mailBlastForm"
+                autocomplete="off" type="normal"
+                schema="App.Schemas.MailBlastForm"
+                resetOnSuccess=false
+                validation='submit'}}
     <div class="gun-content">
       <div class="content-wrapper">
-          <header class="content-header">
+          <header class="content-header content-area">
             <h1>Create a new Mail Blast</h1>
           </header>
 
+          {{> BackButton}}
           <div class="content-body">
             <aside class="address-list-wrapper">
-              {{> DmTextarea name="emails" label="Emails List" class="vstretched"}}
+              {{> DmTextarea name="emails" label="Emails List" labelIcon="email" class="vstretched"}}
             </aside>
 
             <div class="mail-wrapper">
@@ -19,12 +24,13 @@
                 <!--<label>Mail Content</label>-->
                 <!--<textarea name="content" class="form-control mail-content" required-data-schema-key="content"></textarea>-->
                 {{> DmTextarea name="content" label="Mail Content" class="vstretched" }}
-                <div class="mail-actions">
-                  <button class="mailSendButton btn waves-effect waves-light" type="submit" name="action">Send
-                    <i class="material-icons right">send</i>
-                  </button>
-                </div>
             </div>
+          </div>
+
+          <div class="mail-actions content-area vtight">
+            <button class="mailSendButton btn waves-effect waves-light right" type="submit" name="action">Send
+              <i class="material-icons right">send</i>
+            </button>
           </div>
       </div>
     </div>

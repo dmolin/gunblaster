@@ -1,0 +1,144 @@
+@import "{}/client/import.scss";
+
+/*****************************************************************************/
+/* History: Style */
+/*****************************************************************************/
+.template-BlasterView {
+
+  header {
+    display:flex;
+  }
+
+  .header-actions {
+    margin-top:0.5em;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+
+  .blast-details {
+    display:flex;
+    flex-direction: row;
+    margin: 4em 0 3em;
+
+    label {
+      text-transform: uppercase;
+      font-size:1rem;
+      color: #333;
+    }
+  }
+
+  .blast-details-mailfrom {
+    flex-grow: 1;
+  }
+
+  .blast-details-subject {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+
+    > .mailsubject {
+      display: flex;
+      flex-grow: 1;
+      border-bottom: 1px solid #aaa;
+      padding: 0 0.5em;
+    }
+  }
+
+  .mailfrom {
+    padding-left: 46px;
+    position: relative;
+
+    .gravatar-image {
+      position: absolute;
+      margin-top: -5px;
+      left: 0;
+    }
+  }
+
+  .blast-undelivered {
+    margin-bottom: 2em;
+  }
+
+  .collection .collection-item,
+  .collection-item {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .collection-item-col {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .collection-header {
+    text-transform: uppercase;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    padding: .3em .2em;
+    font-size: 1.2em;
+
+    &.row {
+      margin-bottom: 0;
+    }
+  }
+
+  .collection-body {
+    margin-top: 0.2em;
+  }
+
+  .status--delivered {
+    background-color: color("teal", "lighten-2");
+  }
+
+  .status--queued {
+    background-color: color("blue-grey", "lighten-4");
+  }
+
+  .status--not-sent {
+    background-color: color("deep-orange", "accent-2");
+  }
+
+  .status--sent,
+  .status--not-delivered {
+    background-color: color("orange", "lighten-1");
+  }
+
+  .blaster-status {
+    width: 50px;
+
+    i {
+      color: white;
+      font-weight:bold;
+    }
+  }
+  .blaster-date {
+    width: 20%;
+  }
+  .blaster-valid {
+    width:20%;
+  }
+  .blaster-sent {
+    width:20%;
+  }
+  .blaster-delivered {
+    width:20%;
+  }
+  .blaster-actions{
+    width:20%;
+
+    a {
+      outline: none;
+    }
+
+    a:hover {
+      color: $primary-color;
+    }
+
+  }
+
+  .blaster-action-link {
+    width: 32px;
+  }
+}

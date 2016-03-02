@@ -1,0 +1,80 @@
+<template name="BlasterView">
+  <div class="template-BlasterView content-area content-wrapper">
+    <header>
+      <h1>Mail Blast Detail</h1>
+      <div class="header-actions">
+        <button class="btn right waves-effect waves-light" data-id="delete-blast"><i class="material-icons left">delete</i>Delete</button>
+      </div>
+    </header>
+
+    {{> BackButton}}
+
+    <!-- general blast details -->
+    <section class="blast-details">
+      <div class="blast-details-mailfrom">
+        <label>From: </label>
+        <span class="chip">{{> Gravatar}} {{blast.from}}</span>
+      </div>
+      <div class="blast-details-subject">
+        <label>Subject:</label>
+        <span class="mailsubject">{{blast.subject}}</span>
+      </div>
+    </section>
+
+    <section class="blast-undelivered">
+      <p class="capital louder">Undelivered emails</p>
+      <div class="collection-header collection-item row valign-wrapper">
+        <div class="collection-item-col blaster-status"></div>
+        <div class="collection-item-col col s4">email</div>
+        <div class="collection-item-col col s2">
+          <span>Sent At</span>
+        </div>
+        <div class="collection-item-col col s5">
+          <span>Reason</span>
+        </div>
+      </div>
+
+      <div class="collection collection-body">
+        {{#each undelivered}}
+        <div class="collection-item row valign-wrapper" data-id="{{_id}}">
+          <div class="collection-item-col blaster-status status--{{status}}">
+            <i class="material-icons">{{statusIcon}}</i>
+          </div>
+          <div class="collection-item-col col s4">{{to}}</div>
+          <div class="collection-item-col col s2">{{sentDateOrError}}</div>
+
+          <div class="collection-item-col col s5">
+            {{reason}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </section>
+
+    <section class="blast-delivered">
+      <p class="capital louder">Delivered emails</p>
+      <div class="collection-header collection-item row valign-wrapper">
+        <div class="collection-item-col blaster-status"></div>
+        <div class="collection-item-col col s4">email</div>
+        <div class="collection-item-col col s2">
+          <span>Sent At</span>
+        </div>
+        <div class="collection-item-col col s5">
+          <span>Delivered At</span>
+        </div>
+      </div>
+      <div class="collection collection-body">
+        {{#each delivered}}
+          <div class="collection-item row valign-wrapper" data-id="{{_id}}">
+            <div class="collection-item-col blaster-status status--{{status}}">
+              <i class="material-icons">{{statusIcon}}</i>
+            </div>
+            <div class="collection-item-col col s4">{{to}}</div>
+            <div class="collection-item-col col s2">{{formatDate createdAt}}</div>
+            <div class="collection-item-col col s5">{{formatDate updatedAt}}</div>
+          </div>
+        {{/each}}
+      </div>
+    </section>
+  </div>
+</template>

@@ -13,11 +13,13 @@ h6 {
   text-transform: uppercase;
   line-height:110%;
   margin: 0.5em 0 1em !important;
+  font-weight:700 !important;
 }
 
 h1 {
   font-size: 24px !important;
   line-height:32px !important;
+  margin-bottom: 0 !important;
 }
 
 .important {
@@ -26,4 +28,8 @@ h1 {
 
 .capital {
   text-transform: uppercase;
+}
+
+.louder {
+  font-size: 1.2em;
 }

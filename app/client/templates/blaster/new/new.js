@@ -10,7 +10,7 @@ Template.BlasterNew.events({
 /*****************************************************************************/
 Template.BlasterNew.helpers({
   senderEmail: function() {
-    return App.Utils.currentUserEmail();
+    return Session.get('currentUser').email;
   }
 });
 
@@ -18,9 +18,12 @@ Template.BlasterNew.helpers({
 /* Home: Lifecycle Hooks */
 /*****************************************************************************/
 Template.BlasterNew.onCreated(function () {
+
 });
 
 Template.BlasterNew.onRendered(function () {
+  //console.log("rendered");
+  //AutoForm.resetForm('MailBlastForm');
 });
 
 Template.BlasterNew.onDestroyed(function () {

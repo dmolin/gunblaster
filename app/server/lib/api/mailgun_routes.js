@@ -52,7 +52,12 @@ Router.route('/api/mail/declined',{where:'server'}).post(function() {
 
   var emailId = this.request.postData.emailId;
   if(emailId) {
-    App.collections.EmailJobs.update({_id: emailId}, {$set:{status:'not-delivered'}}, {bypassCollection2:true});
+    App.collections.EmailJobs.update({_id: emailId}, {
+      $set:{
+        status:'not-delivered',
+        reason: this.request.postData.description || ""
+      }
+    }, {bypassCollection2:true});
   }
 
   this.response.setHeader('Content-Type', 'application/json');
