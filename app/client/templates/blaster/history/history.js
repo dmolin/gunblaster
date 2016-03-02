@@ -4,7 +4,8 @@
 Template.BlasterHistory.events({
   'click [data-id=delete-blast]': function(event) {
     event.preventDefault();
-    console.log("Deleting blast " + $(event.currentTarget).data('blast-id'));
+    var blastId = $(event.currentTarget).data('blast-id');
+    console.log("Deleting blast " + blastId);
     swal({
       title: 'Are you sure?',
       text: 'Do you want me to delete this Blast? You will not be able to recover it',
@@ -14,7 +15,7 @@ Template.BlasterHistory.events({
       closeOnConfirm: false
     }, function(isConfirm) {
       if(isConfirm) {
-        Meteor.call('mailblast/delete', function(error) {
+        Meteor.call('mailblast/delete', blastId, function(error) {
           if(error) {
             swal("Oops", error, "error");
             return;

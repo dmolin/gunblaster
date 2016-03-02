@@ -69,5 +69,31 @@ Meteor.methods({
       App.collections.EmailJobs.remove({blastId:blastId});
       throw new Meteor.Error("system-error", "We couldn't process your email blast. no email has been sent. please try again.");
     }
-  })
+  }),
+
+  'mailblast/delete': function(blastId) {
+    var user = Meteor.users.findOne(this.userId);
+    var status, reason;
+
+    if (!user) {
+      throw new Meteor.Error('enoauth', 'This method cannot be called when not logged in');
+    }
+
+    check(blastId, String);
+    this.unblock();
+
+    var blast = App.collections.EmailBlasts.findOne({_id:blastId});
+    if(!blast) {
+      //nothing to do here.
+      return;
+    }
+    if(blast.createdBy !== user._id) {
+      throw new Meteor.Error('enotowner', 'This Email blast can be deleted only by its owner');
+    }
+
+    //remove all email jobs associated with this blast
+    App.collections.EmailJobs.remove({blastId: blast._id});
+    //remove the blast
+    App.collections.EmailBlasts.remove({_id:blast._id, createdBy: user._id});
+  }
 });
