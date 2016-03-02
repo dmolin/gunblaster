@@ -14,7 +14,9 @@ App.controllers.BlasterHistoryController = App.controllers.BaseController.extend
   // return Meteor.subscribe('post', this.params._id);
   
   waitOn: function () {
-    return Meteor.subscribe('email_blasts');
+    if(Meteor.user()) {
+      return Meteor.subscribe('email_blasts');
+    }
   },
   
   // A data function that can be used to automatically set the data context for

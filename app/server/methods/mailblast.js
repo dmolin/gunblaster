@@ -4,7 +4,7 @@ Meteor.methods({
     var status, reason;
 
     if(!user) {
-      throw new Meteor.Error('enotfound-user', 'This method cannot be called when not logged in');
+      throw new Meteor.Error('enoauth', 'This method cannot be called when not logged in');
     }
 
     check(data, App.Schemas.MailBlastForm);
@@ -24,6 +24,7 @@ Meteor.methods({
 
     //generate ID for email blast first
     var blastId = App.Utils.uniqueId();
+    var toSend = 0;  //valid email addresses to send to
 
     //create email jobs
     data.emails = data.emails.split('\n');
@@ -37,6 +38,8 @@ Meteor.methods({
         //email is not accepted.
         status = 'not-sent';
         reason = 'Email address invalid'
+      } else {
+        toSend++;
       }
 
       App.collections.EmailJobs.insert({
@@ -52,6 +55,10 @@ Meteor.methods({
       App.collections.EmailBlasts.insert({
         _id: blastId,
         status: 'queued',   //in-progress completed with-errors
+        emails: data.emails.length,
+        valid: toSend,
+        sent: 0,
+        delivered:0,
         from: user.emails[0].address,
         subject: data.subject,
         content: data.content

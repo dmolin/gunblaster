@@ -1,24 +1,30 @@
-<template name="NewBlaster">
+<template name="BlasterNew">
   <div class="template-newBlaster">
     {{#autoForm id="MailBlastForm" class="mailBlastForm" autocomplete="off" type="normal" schema="App.Schemas.MailBlastForm" resetOnSuccess=false}}
     <div class="gun-content">
       <div class="content-wrapper">
-          <aside class="address-list-wrapper">
-            {{> DmTextarea name="emails" label="Emails List" class="vstretched"}}
-          </aside>
+          <header class="content-header">
+            <h1>Create a new Mail Blast</h1>
+          </header>
 
-          <div class="mail-wrapper">
-              <label>From</label>
-              <span class="mailfrom">{{senderEmail}}</span>
-              {{> DmInput name="subject" label="Subject"}}
-              <!--<label>Mail Content</label>-->
-              <!--<textarea name="content" class="form-control mail-content" required-data-schema-key="content"></textarea>-->
-              {{> DmTextarea name="content" label="Mail Content" class="vstretched" }}
-              <div class="mail-actions">
-                <button class="mailSendButton btn waves-effect waves-light" type="submit" name="action">Send
-                  <i class="material-icons right">send</i>
-                </button>
-              </div>
+          <div class="content-body">
+            <aside class="address-list-wrapper">
+              {{> DmTextarea name="emails" label="Emails List" class="vstretched"}}
+            </aside>
+
+            <div class="mail-wrapper">
+                <label>From</label>
+                <span class="mailfrom">{{senderEmail}}</span>
+                {{> DmInput name="subject" label="Subject"}}
+                <!--<label>Mail Content</label>-->
+                <!--<textarea name="content" class="form-control mail-content" required-data-schema-key="content"></textarea>-->
+                {{> DmTextarea name="content" label="Mail Content" class="vstretched" }}
+                <div class="mail-actions">
+                  <button class="mailSendButton btn waves-effect waves-light" type="submit" name="action">Send
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+            </div>
           </div>
       </div>
     </div>

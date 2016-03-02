@@ -5,7 +5,14 @@ Router.configure({
 });
 
 App.Router.plugins.login = {
-  loginRequired: function(route) {
+  loginRequired: function(router, options) {
+    //skip API routes
+    if(router.url && router.url.match(/^\/api\//)) {
+      //skip API routes
+      this.next();
+      return;
+    }
+
     if(!Meteor.userId()) {
       Router.go('login');
     } else {
@@ -14,7 +21,7 @@ App.Router.plugins.login = {
   },
   homeIfLogged: function(route) {
     if(Meteor.userId()) {
-      Router.go('blasterHistory')
+      Router.go('blaster/history')
     } else {
       this.next();
     }
@@ -37,13 +44,13 @@ Router.route('/login', {
 });
 
 Router.route('/new', {
-  name: 'newBlaster',
+  name: 'blaster/new',
   controller: 'App.controllers.NewBlasterController'
 });
 
 Router.route('/history', {
-  name: 'blasterHistory',
+  name: 'blaster/history',
   controller: 'App.controllers.BlasterHistoryController'
 });
 
-Router.route('/', function() { Router.go("blasterHistory"); });
+Router.route('/', function() { Router.go("blaster/history"); });

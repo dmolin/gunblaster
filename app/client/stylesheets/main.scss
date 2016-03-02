@@ -11,19 +11,9 @@ body, html {
 }
 
 body, * {
-  font-family: 'Roboto', sans-serif;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-h1,h2,h3,h4,h5,h6 {
-  font-family: Ubuntu, sans-serif;
-  font-weight:bold;
-}
-
-.main {
-}
-
 
 .superfocus {
   border-radius: 2px;
@@ -44,11 +34,51 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .content-area {
-  padding: 0.5em;
+  padding: 0.5em 1em;
 }
 
 button, .btn {
   &:focus {
     box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.4);
   }
+}
+
+.input-field > label {
+  left: 0;
+}
+
+.tooltip {
+  transition: opacity 0.3s ease-in-out;
+  transition-delay: 0.5s;
+}
+.tooltip.show {
+  display: block;
+  opacity: 1;
+}
+.tooltip.hide {
+  display: block !important;
+  opacity: 0;
+}
+.tooltip.show {
+  background: rgba(0,0,0, 0.5);
+  color: white;
+  padding: 0.1em 1em;
+  border-radius: 5px;
+}
+.tooltip.show:after, .tooltip.show:before {
+  bottom: 100%;
+  left: 48%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+
+}
+.tooltip.show:before {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: rgba(0,0,0, 0.5);
+  border-width: 9px;
+  margin-left: -9px;
 }

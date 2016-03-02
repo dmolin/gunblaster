@@ -4,4 +4,97 @@
 /* History: Style */
 /*****************************************************************************/
 .template-BlasterHistory {
+
+  header {
+    display:flex;
+  }
+
+  .history-actions {
+    margin-top:1em;
+    flex-grow: 1;
+    justify-content: flex-end;
+
+  }
+
+  .cta {
+    font-size: 1.2em;
+  }
+
+  .collection .collection-item,
+  .collection-item {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .collection-item-col {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .status--completed {
+    background-color: color("teal", "lighten-2");
+  }
+
+  .status--queued {
+    background-color: color("blue-grey", "lighten-4");
+  }
+
+  .status--in-progress {
+    background-color: color("orange", "lighten-1");
+  }
+
+  .status--with-errors {
+    background-color: color("red", "darken-1");
+  }
+
+  .blaster-header {
+    text-transform: uppercase;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    padding: .3em .2em;
+    font-size: 1.2em;
+  }
+
+  .blaster-body {
+    margin-top: 0.2em;
+  }
+
+  .blaster-status {
+    width: 50px;
+
+    i {
+      color: white;
+      font-weight:bold;
+    }
+  }
+  .blaster-date {
+    width: 20%;
+  }
+  .blaster-valid {
+    width:20%;
+  }
+  .blaster-sent {
+    width:20%;
+  }
+  .blaster-delivered {
+    width:20%;
+  }
+  .blaster-actions{
+    width:20%;
+
+    a {
+      outline: none;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+  }
+
+  .blaster-action-link {
+    width: 32px;
+  }
 }

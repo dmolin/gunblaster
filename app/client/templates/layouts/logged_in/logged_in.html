@@ -17,10 +17,10 @@
     <nav class="subnav">
       <ul class="left nav-items valign-wrapper">
         <li class="valign">
-          <a href="/history"><i class="left material-icons">assessment</i>History</a>
+          <a href="{{pathFor 'blaster/history'}}"><i class="left material-icons">assessment</i>History</a>
         </li>
         <li class="valign">
-          <a href="/new"><i class="left material-icons">message</i>New GunBlaster</a>
+          <a href="{{pathFor 'blaster/new'}}"><i class="left material-icons">message</i>New GunBlaster</a>
         </li>
       </ul>
       <ul class="right nav-items valign-wrapper">
@@ -31,5 +31,7 @@
     </nav>
 
     {{> yield}}
+
+    {{ > tooltips }}
   </div>
 </template>

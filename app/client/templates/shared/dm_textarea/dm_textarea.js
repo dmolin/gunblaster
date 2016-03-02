@@ -5,6 +5,9 @@ Template.DmTextarea.helpers({
   },
   id: function() {
     return Template.instance().id;
+  },
+  fullClass: function() {
+    return "template-DmTextarea " + (Template.instance().data.class||"");
   }
 });
 

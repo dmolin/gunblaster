@@ -2,15 +2,72 @@
   <div class="template-BlasterHistory content-area">
     <header>
       <h1>Latest Mail Blasts</h1>
+      <div class="history-actions">
+        <a href="{{pathFor 'blaster/new'}}" class="btn right"><i class="material-icons left">playlist_add</i>Create</a>
+      </div>
     </header>
 
     {{#if isEmpty}}
       <div class="center">
-        <p>No previous blasters yet.</p>
+        <p class="cta important capital">No previous blasters yet.</p>
 
-        <button>Create a new one!</button>
+        <button class="btn"><i class="material-icons left">playlist_add</i>Create a new one!</button>
+      </div>
+    {{else}}
+      <div class="blaster-header collection-item">
+        <div class="collection-item-col blaster-status">
+        </div>
+        <div class="collection-item-col blaster-date">
+          <span>Created At</span>
+        </div>
+        <div class="collection-item-col blaster-valid">
+          <span>Valid Emails</span>
+        </div>
+        <div class="collection-item-col blaster-sent">
+          <span>Emails sent</span>
+        </div>
+        <div class="collection-item-col blaster-delivered">
+          <span>Emails delivered</span>
+        </div>
+        <div class="collection-item-col blaster-actions">
+          <span>Actions</span>
+        </div>
       </div>
 
+      <div class="collection blaster-body">
+      {{#each blasts}}
+        <a class="collection-item">
+          <div class="collection-item-col blaster-status status--{{status}}">
+            {{#if equals status 'completed'}}
+              {{#if equals valid delivered}}
+                <i class="material-icons">done</i>
+              {{else}}
+                <i class="material-icons">error_outline</i>
+              {{/if}}
+            {{/if}}
+            {{#if equals status 'in-progress'}}
+              <i class="material-icons">loop</i>
+            {{/if}}
+            {{statusIcon}}
+          </div>
+          <div class="collection-item-col blaster-date">
+            {{formatDate createdAt}}
+          </div>
+          <div class="collection-item-col blaster-valid">{{valid}}/{{emails}}</div>
+          <div class="collection-item-col blaster-sent">{{sent}}</div>
+          <div class="collection-item-col blaster-delivered">{{delivered}}</div>
+          <div class="collection-item-col blaster-actions">
+            <a href="#"
+               data-id="delete-blast" data-blast-id="{{_id}}"
+               data-tooltip="Delete this email blast"
+               data-tooltip-direction="s"
+               data-tooltip-trigger="hover"
+               class="blaster-action-link"><i class="center material-icons">delete</i></a>
+          </div>
+        </a>
+      {{/each}}
+      </div>
     {{/if}}
+
   </div>
 </template>

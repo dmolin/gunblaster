@@ -9,6 +9,17 @@
     resize: none;
   }
 
+  .content-header {
+    padding: $ug-padding $ug-padding 0;
+    h1 { margin: 0 !important; }
+  }
+
+  .content-body {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+  }
+
   .gun-content {
     position: absolute;
     //top: 100px;
@@ -19,7 +30,7 @@
 
   .content-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: stretch;
     height: 100%;
   }
@@ -38,9 +49,6 @@
     flex-grow: 1;
     padding: $ug-padding;
     flex-direction: column;
-  }
-
-  .mail-content {
   }
 
   .mail-actions {
