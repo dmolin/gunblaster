@@ -23,6 +23,22 @@ Planned
 - Interruptible jobs
 - Tracking of opened/unread emails
 
+## How do I run it?
+
+- Install MeteorJS v1.2.1
+- you need a MailGun account (a Free tier will do) and your API key
+- before running your server export the MAIL_URL environment variable:
+```
+MAIL_URL=smtp://<your domain SMTP login in mailgun>:<your SMTP domain password>@smtp.mailgun.org:587
+```
+(see https://help.mailgun.com/hc/en-us/articles/203380100-Where-can-I-find-my-API-key-and-SMTP-credentials-)
+- run the GunBlaster server from the **_app/_** folder
+```
+cd app
+meteor run --settings ../config/development/settings.json
+```
+- access the app from `http://localhost:3000`
+
 ## Screenshots
 
 Login
