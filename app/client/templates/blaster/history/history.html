@@ -37,24 +37,7 @@
       <div class="collection blaster-body">
       {{#each blasts}}
         <a class="collection-item" href="{{pathFor 'blaster/view' id=_id }}">
-          <div class="collection-item-col blaster-status status--{{status}}">
-            {{#if equals status 'queued' }}
-              <i class="material-icons">alarm_on</i>
-            {{/if}}
-            {{#if equals status 'completed'}}
-              {{#if equals valid delivered}}
-                <i class="material-icons">done</i>
-              {{else}}
-                <i class="material-icons">error_outline</i>
-              {{/if}}
-            {{/if}}
-            {{#if equals status 'in-progress'}}
-              <i class="material-icons">loop</i>
-            {{/if}}
-            {{#if equals status 'with-errors'}}
-              <i class="material-icons">error_outline</i>
-            {{/if}}
-          </div>
+          {{> BlastStatus blast=this class="collection-item-col" }}
           <div class="collection-item-col blaster-date">
             {{formatDate createdAt}}
           </div>

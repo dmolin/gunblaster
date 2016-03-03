@@ -1,7 +1,7 @@
 <template name="BlasterView">
   <div class="template-BlasterView content-area content-wrapper">
     <header>
-      <h1>Mail Blast Detail</h1>
+      <h1>Mail Blast Detail - {{formatDate blast.createdAt}}</h1>
       <div class="header-actions">
         <button class="btn right waves-effect waves-light" data-id="delete-blast"><i class="material-icons left">delete</i>Delete</button>
       </div>
@@ -10,14 +10,22 @@
     {{> BackButton}}
 
     <!-- general blast details -->
-    <section class="blast-details">
-      <div class="blast-details-mailfrom">
-        <label>From: </label>
-        <span class="chip">{{> Gravatar}} {{blast.from}}</span>
+    <div class="blast-details-status md-col">
+      <div class="collection collection-item">
+        {{> BlastStatus blast=blast class="collection-item-col"}}
+        <div class="collection-item-col col s11">{{> BlastStatusText blast=blast}}</div>
       </div>
-      <div class="blast-details-subject">
-        <label>Subject:</label>
-        <span class="mailsubject">{{blast.subject}}</span>
+    </div>
+    <section class="blast-details">
+      <div class="md-row">
+        <div class="blast-details-mailfrom">
+          <label>From: </label>
+          <span class="chip">{{> Gravatar}} {{blast.from}}</span>
+        </div>
+        <div class="blast-details-subject">
+          <label>Subject:</label>
+          <span class="mailsubject">{{blast.subject}}</span>
+        </div>
       </div>
     </section>
 
@@ -59,9 +67,10 @@
         <div class="collection-item-col col s2">
           <span>Sent At</span>
         </div>
-        <div class="collection-item-col col s5">
+        <div class="collection-item-col col s3">
           <span>Delivered At</span>
         </div>
+        <div class="collection-item-col col s2"><span>Opened?</span></div>
       </div>
       <div class="collection collection-body">
         {{#each delivered}}
@@ -71,7 +80,8 @@
             </div>
             <div class="collection-item-col col s4">{{to}}</div>
             <div class="collection-item-col col s2">{{formatDate createdAt}}</div>
-            <div class="collection-item-col col s5">{{formatDate updatedAt}}</div>
+            <div class="collection-item-col col s3">{{formatDate updatedAt}}</div>
+            <div class="collection-item-col col s2">{{opened}}</div>
           </div>
         {{/each}}
       </div>

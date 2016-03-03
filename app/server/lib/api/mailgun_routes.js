@@ -6,8 +6,7 @@ var Busboy = Meteor.npmRequire("busboy"),
 Router.onBeforeAction(function (req, res, next) {
   var filenames = []; // Store filenames and then pass them to request.
   _.extend(req, {postData: {}});
-
-  if (req.method === "POST") {
+  if (req.method === "POST" && req.url === '/api/mail/declined') {
     var busboy = new Busboy({ headers: req.headers });
     busboy.on("file", function (fieldname, file, filename, encoding, mimetype) {
       var saveTo = path.join(os.tmpDir(), filename);
@@ -30,7 +29,7 @@ Router.onBeforeAction(function (req, res, next) {
 });
 
 Router.route('/api/mail/delivered',{where:'server'}).post(function() {
-  console.log("Mail delivered", this.request.body);
+  //console.log("Mail delivered", this.request.body);
 
   //update EmailJob
   var emailId = this.request.body.emailId;
@@ -48,7 +47,7 @@ Router.route('/api/mail/delivered',{where:'server'}).post(function() {
 });
 
 Router.route('/api/mail/declined',{where:'server'}).post(function() {
-  console.log("Mail declined", this.request.postData);
+  //console.log("Mail declined", this.request.postData);
 
   var emailId = this.request.postData.emailId;
   if(emailId) {
@@ -58,6 +57,20 @@ Router.route('/api/mail/declined',{where:'server'}).post(function() {
         reason: this.request.postData.description || ""
       }
     }, {bypassCollection2:true});
+  }
+
+  this.response.setHeader('Content-Type', 'application/json');
+  this.response.statusCode = 200;
+  this.response.end(JSON.stringify({success: true, reason: ''}));
+});
+
+Router.route('/api/mail/opened', {where:'server'}).post(function() {
+  //console.log("Mail opened", this.request.body);
+
+  //update EmailJob
+  var emailId = this.request.body.emailId;
+  if(emailId) {
+    App.collections.EmailJobs.update({_id: emailId}, {$set:{opened:true}}, {bypassCollection2:true});
   }
 
   this.response.setHeader('Content-Type', 'application/json');

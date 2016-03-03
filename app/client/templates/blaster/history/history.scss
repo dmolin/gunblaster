@@ -33,22 +33,6 @@
     flex-direction: column;
   }
 
-  .status--completed {
-    background-color: color("teal", "lighten-2");
-  }
-
-  .status--queued {
-    background-color: color("blue-grey", "lighten-4");
-  }
-
-  .status--in-progress {
-    background-color: color("orange", "lighten-1");
-  }
-
-  .status--with-errors {
-    background-color: color("deep-orange", "accent-2");
-  }
-
   .blaster-header {
     text-transform: uppercase;
     background-color: #eee;
@@ -61,14 +45,6 @@
     margin-top: 0.2em;
   }
 
-  .blaster-status {
-    width: 50px;
-
-    i {
-      color: white;
-      font-weight:bold;
-    }
-  }
   .blaster-date {
     width: 20%;
   }
