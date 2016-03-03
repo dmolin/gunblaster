@@ -2,16 +2,19 @@
   <div class="template-BlasterHistory content-area content-wrapper">
     <header>
       <h1>Latest Mail Blasts</h1>
+      {{#unless isEmpty}}
       <div class="history-actions">
         <a href="{{pathFor 'blaster/new'}}" class="btn waves-effect waves-light right"><i class="material-icons left">playlist_add</i>Create</a>
       </div>
+      {{/unless}}
     </header>
 
     {{#if isEmpty}}
-      <div class="center">
-        <p class="cta important capital">No previous blasters yet.</p>
+      <div class="center content-area">
+        <p class="cta important capital">There's nothing here yet.</p>
+        <p class="subhead">Why not creating a new Email Blast?</p>
 
-        <button class="btn waves-effect waves-light"><i class="material-icons left">playlist_add</i>Create a new one!</button>
+        <a href="{{pathFor 'blaster/new'}}" class="btn waves-effect waves-light"><i class="material-icons left">playlist_add</i>Create a new one!</a>
       </div>
     {{else}}
       <div class="blaster-header collection-item">
