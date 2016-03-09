@@ -1,5 +1,5 @@
-# Gunblaster
-Super simple client App built for a friend, for sending blast of emails to a list of recipients through the MailGun API.
+# Meteor 'Gunblaster'
+Super simple MeteorJS App built for a friend, for sending blast of emails to a list of recipients through the MailGun API.
 
 The entire WebApp, from inception to completion, has been implemented in 4 days of part-time work.
 
