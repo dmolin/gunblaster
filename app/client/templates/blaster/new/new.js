@@ -22,8 +22,11 @@ Template.BlasterNew.onCreated(function () {
 });
 
 Template.BlasterNew.onRendered(function () {
-  //console.log("rendered");
   //AutoForm.resetForm('MailBlastForm');
+  $('[data-id=email-content]').froalaEditor({
+    charCounterCount: false,
+    codeMirror: false
+  })
 });
 
 Template.BlasterNew.onDestroyed(function () {
@@ -34,7 +37,11 @@ AutoForm.hooks({
     onSubmit: function(validDoc, updateDoc, currentDoc) {
       var form = this;
       App.Schemas.MailBlastForm.clean(validDoc);
-      console.log("ready to blast!");
+      //validDoc.content = $('[data-id=email-content]').froalaEditor('html.get');
+      console.log("ready to blast!", validDoc);
+
+      return false;
+
       //call server to send email blast
       Meteor.call("mailblast/send", MethodsHelper.uniqueReferenceIdParam(), validDoc, function(err, result) {
         if(err) {

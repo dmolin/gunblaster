@@ -21,9 +21,9 @@
                 <label>From</label>
                 <span class="mailfrom">{{senderEmail}}</span>
                 {{> DmInput name="subject" label="Subject"}}
-                <!--<label>Mail Content</label>-->
-                <!--<textarea name="content" class="form-control mail-content" required-data-schema-key="content"></textarea>-->
-                {{> DmTextarea name="content" label="Mail Content" class="vstretched" }}
+                <!-- { { > DmTextarea name="content" label="Mail Content" class="vstretched" }} -->
+                <label for="mail-data">Mail Content</label>
+                <div id="mail-data" data-id="email-content" class="template-DmTextarea"></div>
             </div>
           </div>
 

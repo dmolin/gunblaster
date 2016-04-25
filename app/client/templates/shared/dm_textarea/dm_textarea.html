@@ -2,13 +2,14 @@
   {{#if label}}
     <label for="{{id}}">{{#if labelIcon}}<i class="textarea-icon material-icons">{{labelIcon}}</i>{{/if}}{{label}}</label>
   {{/if}}
+  <div class={{fullClass}}>
   {{> afFieldInput
     id=id
     name=name
     pattern=pattern
     placeholder=placeholder
-    class=fullClass
-    type='textarea'
+    __type='textarea'
+    type=type
     value=value
     defaultValue=defaultValue
     label=label
@@ -18,6 +19,7 @@
     autocomplete=autocomplete
     autocapitalize=autocapitalize
   }}
+  </div>
   <div>
     {{#if afFieldIsInvalid name=name}}
       <span class="help-block">{{{afFieldMessage name=name}}}</span>

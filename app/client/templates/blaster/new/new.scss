@@ -66,4 +66,20 @@
     padding: 0.5em;
   }
 
+
+  .template-DmTextarea {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 0.5em;
+
+    .fr-wrapper {
+      flex: 1;
+      overflow: auto;
+    }
+  }
+
+  label.template-DmTextarea {
+    left: 0;
+  }
 }

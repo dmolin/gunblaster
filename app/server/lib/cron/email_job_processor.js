@@ -76,7 +76,8 @@ function sendEmailForBlast(blast, emailJob) {
       to: emailJob.to,
       from: blast.from,
       subject: blast.subject,
-      text: blast.content,
+      //text: blast.content,
+      html: blast.content,
       replyTo: blast.from,
       headers: {'X-Mailgun-Variables': JSON.stringify(headers)}
     });

@@ -8,6 +8,9 @@ Template.DmTextarea.helpers({
   },
   fullClass: function() {
     return "template-DmTextarea " + (Template.instance().data.class||"");
+  },
+  type: function() {
+    return _parseType(Template.instance().data.type);
   }
 });
 
@@ -38,3 +41,11 @@ Template.DmTextarea.events({
       inputValue = input.val();
   }
 });
+
+function _parseType(type) {
+  var out = 'textarea';
+  if(type && type === 'editor') {
+    out = 'froalaEditor'
+  }
+  return out;
+}
