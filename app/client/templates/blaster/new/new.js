@@ -37,10 +37,8 @@ AutoForm.hooks({
     onSubmit: function(validDoc, updateDoc, currentDoc) {
       var form = this;
       App.Schemas.MailBlastForm.clean(validDoc);
-      //validDoc.content = $('[data-id=email-content]').froalaEditor('html.get');
+      validDoc.content = $('[data-id=email-content]').froalaEditor('html.get');
       console.log("ready to blast!", validDoc);
-
-      return false;
 
       //call server to send email blast
       Meteor.call("mailblast/send", MethodsHelper.uniqueReferenceIdParam(), validDoc, function(err, result) {
