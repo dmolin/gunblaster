@@ -19,7 +19,6 @@ app-base
 methods-idempotence
 
 iron:router
-ongoworks:google-spreadsheets
 accounts-base
 accounts-password
 aldeed:collection2

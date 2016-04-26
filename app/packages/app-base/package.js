@@ -18,5 +18,6 @@ Package.onUse(function (api) {
   api.addFiles('route_config.js');
   api.addFiles('client_utils.js', 'client');
   api.addFiles('base_controller.js');
+  api.addFiles('client_store.js', 'client');
   api.export('App');
 });

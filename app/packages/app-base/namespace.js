@@ -3,5 +3,6 @@ App = {
   Schemas:{},
   Utils:{},
   controllers:{},
-  collections:{}
+  collections:{},
+  queryFilters:{}
 };

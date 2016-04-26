@@ -9,6 +9,33 @@
       {{/unless}}
     </header>
 
+    <div class="blaster-header collection-item">
+      <div class="collection-item-col blaster-status">
+      </div>
+      <div class="collection-item-col blaster-date">
+        <span>Created At</span>
+        <select class="browser-default" data-id="date-filter">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="0d" {{selectedIf filter "0d"}}>today</option>
+          <option value="1d" {{selectedIf filter "1d"}}>yesterday</option>
+          <option value="1w" {{selectedIf filter "1w"}}>last 7 days</option>
+          <option value="1m" {{selectedIf filter "1m"}}>last month</option>
+          <option value="-1" {{selectedIf filter "1y"}}>last year</option>
+        </select>
+      </div>
+      <div class="collection-item-col blaster-valid">
+        <span>Valid Emails</span>
+      </div>
+      <div class="collection-item-col blaster-sent">
+        <span>Sent</span>
+      </div>
+      <div class="collection-item-col blaster-delivered">
+        <span>Delivered</span>
+      </div>
+      <div class="collection-item-col blaster-actions">
+        <span>Actions</span>
+      </div>
+    </div>
     {{#if isEmpty}}
       <div class="center content-area">
         <p class="cta important capital">There's nothing here yet.</p>
@@ -17,25 +44,6 @@
         <a href="{{pathFor 'blaster/new'}}" class="btn waves-effect waves-light"><i class="material-icons left">playlist_add</i>Create a new one!</a>
       </div>
     {{else}}
-      <div class="blaster-header collection-item">
-        <div class="collection-item-col blaster-status">
-        </div>
-        <div class="collection-item-col blaster-date">
-          <span>Created At</span>
-        </div>
-        <div class="collection-item-col blaster-valid">
-          <span>Valid Emails</span>
-        </div>
-        <div class="collection-item-col blaster-sent">
-          <span>Sent</span>
-        </div>
-        <div class="collection-item-col blaster-delivered">
-          <span>Delivered</span>
-        </div>
-        <div class="collection-item-col blaster-actions">
-          <span>Actions</span>
-        </div>
-      </div>
 
       <div class="collection blaster-body">
       {{#each blasts}}

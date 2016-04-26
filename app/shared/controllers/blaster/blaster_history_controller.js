@@ -15,7 +15,7 @@ App.controllers.BlasterHistoryController = App.controllers.BaseController.extend
   
   waitOn: function () {
     if(Meteor.user()) {
-      return Meteor.subscribe('email_blasts');
+      return Meteor.subscribe('email_blasts', App.data && App.data.filters.emailBlasts.get() || {createdAt:'1w'});
     }
   },
   

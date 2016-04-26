@@ -2,6 +2,14 @@
 /* History: Event Handlers */
 /*****************************************************************************/
 Template.BlasterHistory.events({
+  'change [data-id=date-filter]': function(event) {
+    event.preventDefault();
+    var filterValue = $(event.currentTarget).val();
+    console.log("filter", filterValue);
+    
+    App.data.filters.emailBlasts.set({createdAt: filterValue})
+    //Meteor.subscribe('email_blasts', );
+  },
   'click [data-id=delete-blast]': function(event) {
     event.preventDefault();
     var blastId = $(event.currentTarget).data('blast-id');
@@ -33,10 +41,13 @@ Template.BlasterHistory.events({
 /*****************************************************************************/
 Template.BlasterHistory.helpers({
   blasts: function() {
-    return App.collections.EmailBlasts.find({createdBy: Meteor.userId()}, {sort: { createdAt:-1 }});
+    return App.collections.EmailBlasts.find(App.queryFilters.emailBlasts(App.data.filters.emailBlasts.get()), {sort: { createdAt:-1 }});
   },
   isEmpty: function() {
-    return App.collections.EmailBlasts.find({createdBy: Meteor.userId()}).count() === 0;
+    return App.collections.EmailBlasts.find(App.queryFilters.emailBlasts(App.data.filters.emailBlasts.get())).count() === 0;
+  },
+  filter: function() {
+    return App.data.filters.emailBlasts.get().createdAt;
   }
 });
 
