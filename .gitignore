@@ -2,3 +2,4 @@ build/android
 build/ios
 build/*gz
 .idea
+mupx-*
