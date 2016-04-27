@@ -1,5 +1,6 @@
 App.Schemas.MailBlastForm = new SimpleSchema({
     subject: { type:String, min: 1},
+    text: { type:String, min: 1},
     content: {
         type: String,
         min: 1,

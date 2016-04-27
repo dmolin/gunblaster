@@ -23,7 +23,10 @@
                 {{> DmInput name="subject" label="Subject"}}
                 <!-- { { > DmTextarea name="content" label="Mail Content" class="vstretched" }} -->
                 <label for="mail-data">Mail Content</label>
-                <div id="mail-data" data-id="email-content" class="template-DmTextarea"></div>
+                <div class="mail-content-wrapper vstretched">
+                  <div id="mail-data" data-id="email-content" class="template-DmTextarea"></div>
+                  {{> DmTextarea name="text" label="Mail NON-HTML version" class="vstretched" }}
+                </div>
             </div>
           </div>
 

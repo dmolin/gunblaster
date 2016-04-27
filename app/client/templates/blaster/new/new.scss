@@ -50,6 +50,12 @@
     flex-direction: column;
   }
 
+  .mail-content-wrapper {
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+
   .mail-actions {
     padding-top: 0;
   }
@@ -72,6 +78,7 @@
     flex-direction: column;
     flex: 1;
     margin-top: 0.5em;
+    min-height:200px;
 
     .fr-wrapper {
       flex: 1;

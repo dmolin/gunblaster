@@ -70,13 +70,15 @@ function sendEmailForBlast(blast, emailJob) {
     blastId: blast._id,
     emailId: emailJob._id
   };
+  
+  //console.log("send email. text", blast.text);
 
   try {
     Email.send({
       to: emailJob.to,
       from: blast.from,
       subject: blast.subject,
-      //text: blast.content,
+      text: blast.text,
       html: blast.content,
       replyTo: blast.from,
       headers: {'X-Mailgun-Variables': JSON.stringify(headers)}

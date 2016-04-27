@@ -61,7 +61,8 @@ Meteor.methods({
         delivered:0,
         from: user.emails[0].address,
         subject: data.subject,
-        content: data.content
+        content: data.content,
+        text: data.text,
       }, {validate:false, bypassCollection2:true});
     }
     catch(error) {
