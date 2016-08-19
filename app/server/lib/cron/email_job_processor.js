@@ -70,7 +70,7 @@ function sendEmailForBlast(blast, emailJob) {
     blastId: blast._id,
     emailId: emailJob._id
   };
-  
+
   //console.log("send email. text", blast.text);
 
   try {
@@ -90,7 +90,7 @@ function sendEmailForBlast(blast, emailJob) {
     emailOutcome = 'error';
   } finally {
     App.collections.EmailJobs.update({_id:emailJob._id}, {$set:{status:emailOutcome}}, {bypassCollection2:true});
-    Meteor.sleep(100);
+    Meteor.sleep(2500);
   }
 
   return outcome;

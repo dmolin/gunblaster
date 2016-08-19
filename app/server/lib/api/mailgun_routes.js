@@ -51,10 +51,10 @@ Router.route('/api/mail/declined',{where:'server'}).post(function() {
 
   var emailId = this.request.postData.emailId;
   if(emailId) {
-    App.collections.EmailJobs.update({_id: emailId}, {
+    App.collections.EmailJobs.update({_id: emailId, status:'sent'}, {
       $set:{
         status:'not-delivered',
-        reason: this.request.postData.description || ""
+        reason: this.request.postData.description || "Mail not delivered. See Mailgun logs"
       }
     }, {bypassCollection2:true});
   }
