@@ -1,5 +1,8 @@
-/*****************************************************************************/
-/* History: Event Handlers */
+/*****************************************************************************
+ * History: Event Handlers 
+ * 'this' is always bound to the data context of the element
+ * So, if we're iterating with #each, each row has 'this' set to the document
+ * element we're iterating onto. 
 /*****************************************************************************/
 Template.BlasterHistory.events({
   'change [data-id=date-filter]': function(event) {
@@ -12,8 +15,7 @@ Template.BlasterHistory.events({
   },
   'click [data-id=delete-blast]': function(event) {
     event.preventDefault();
-    var blastId = $(event.currentTarget).data('blast-id');
-    console.log("Deleting blast " + blastId);
+    var blastId = this._id;
     swal({
       title: 'Are you sure?',
       text: 'Do you want me to delete this Blast? You will not be able to recover it',

@@ -4,6 +4,9 @@ Template.BlastStatus.helpers({
     if(!blast) return;
 
     switch(blast.status) {
+      case 'created':
+        return 'play_arrow'
+        break;
       case 'queued':
         return 'alarm_on'
         break;
@@ -11,7 +14,7 @@ Template.BlastStatus.helpers({
         return "loop";
         break;
       case 'completed':
-        return ((blast.valid === blast.delivered) ? "done" : "error_outline");
+        return ((blast.valid === blast.delivered) ? "done_all" : "done");
         break;
       case 'with-errors':
         return "error_outline";

@@ -3,9 +3,8 @@ Meteor.publish('email_blasts', function(filter) {
 
   if(!this.userId) {
     throw new Meteor.Error('enoauth', 'The email blasts can be queried only by logged in users');
+    //alternatively, I can return this.ready() to ready the cursor without transferring any data
   }
-
-  console.log("email_blasts filter", filter);
 
   var queryFilter = {
     createdBy: this.userId
@@ -13,7 +12,6 @@ Meteor.publish('email_blasts', function(filter) {
 
   queryFilter = _.extend({}, queryFilter, App.queryFilters.emailBlasts(filter));
 
-  console.log("query", queryFilter);
   return App.collections.EmailBlasts.find(queryFilter, {
     sort: { createdAt:-1 }
   });

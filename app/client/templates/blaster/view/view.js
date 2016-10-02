@@ -2,9 +2,24 @@
 /* History: Event Handlers */
 /*****************************************************************************/
 Template.BlasterView.events({
+  'click [data-id=start-blast]': function(event) {
+    event.preventDefault();
+    const blast = Template.instance().data.blast;
+    const blastId = blast._id;
+
+    if (blast.status !== 'created') {
+      return;
+    }
+
+    console.log("Starting blast", blastId);
+    Meteor.call('mailblast/start', blastId, function(error) {
+      if(error) { swal("Oops", error, "error"); }
+    });
+  },
+
   'click [data-id=delete-blast]': function(event) {
     event.preventDefault();
-    var blastId = Template.instance().data.id;
+    var blastId = Template.instance().data.blast._id;
     console.log("Deleting blast " + blastId);
     swal({
       title: 'Are you sure?',
@@ -38,10 +53,10 @@ Template.BlasterView.helpers({
 
     switch(email.status) {
       case 'delivered':
-        outcome = 'done';
+        outcome = 'done_all';
         break;
       case 'sent':
-        outcome = email.delivered ? 'done' : 'error_outline';
+        outcome = email.delivered ? 'done_all' : 'done';
         break;
       case 'queued':
         outcome = 'alarm_on';
@@ -56,25 +71,6 @@ Template.BlasterView.helpers({
 
     return outcome;
   },
-  blastStatusIcon: function() {
-    var blast = this.blast;
-    if(!blast) return;
-
-    switch(blast.status) {
-      case 'queued':
-        return 'alarm_on'
-        break;
-      case 'in-progress':
-        return "loop";
-        break;
-      case 'completed':
-        return ((blast.valid === blast.delivered) ? "done" : "error_outline");
-        break;
-      case 'with-errors':
-        return "error_outline";
-        break;
-    }
-  },
   sentDateOrError: function() {
     var email = this;
 
@@ -82,13 +78,21 @@ Template.BlasterView.helpers({
       return moment(email.createdAt).format('DD-MM-YYYY HH:mm:ss');
     }
     return "not sent";
+  },
+  deliveryDateOrDetails: function() {
+    var email = this;
+    if (email.status === 'delivered') { 
+      return "Delivered on " + moment(email.updatedAt).format('DD-MM-YYYY HH:mm:ss');
+    } else {
+      return email.reason || "n.a";
+    }
   }
 });
 
 /*****************************************************************************/
 /* History: Lifecycle Hooks */
 /*****************************************************************************/
-Template.BlasterView.onCreated(function () {
+Template.BlasterView.onCreated(() => {
 });
 
 Template.BlasterView.onRendered(function () {

@@ -2,6 +2,9 @@ Template.BlastStatusText.helpers({
   status: function() {
     var blast = this.blast;
     switch(blast.status) {
+      case 'created':
+        return "This blast has been created and ready to be started by the user";
+        break;
       case 'queued':
         return "This blast is waiting for being processed";
         break;

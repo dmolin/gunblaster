@@ -54,7 +54,8 @@ Meteor.methods({
     try {
       App.collections.EmailBlasts.insert({
         _id: blastId,
-        status: toSend > 0 ? 'queued' : 'with-errors',   //[queued, in-progress, completed, with-errors]
+        //status: toSend > 0 ? 'queued' : 'with-errors',   //[queued, in-progress, completed, with-errors]
+        status: toSend > 0 ? 'created' : 'with-errors',   //[created, queued, in-progress, completed, with-errors]
         emails: data.emails.length,
         valid: toSend,
         sent: 0,
@@ -71,6 +72,21 @@ Meteor.methods({
       throw new Meteor.Error("system-error", "We couldn't process your email blast. no email has been sent. please try again.");
     }
   }),
+
+  'mailblast/start': function(blastId) {
+    //this works only for blasts that are in status 'created', or 'paused'
+    var user = Meteor.users.findOne(this.userId);
+    if(!user) {
+      throw new Meteor.Error('enoauth', 'This method cannot be called when not logged in');
+    }
+
+    check(blastId, String);
+    this.unblock();
+
+    App.collections.EmailBlasts.update({_id:blastId, status:'created'}, {$set:{
+      status: 'queued'
+    }}, {bypassCollection2:true});
+  },
 
   'mailblast/delete': function(blastId) {
     var user = Meteor.users.findOne(this.userId);

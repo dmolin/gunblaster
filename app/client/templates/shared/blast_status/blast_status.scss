@@ -12,6 +12,7 @@
     background-color: color("teal", "lighten-2");
   }
 
+  &.status--created,
   &.status--queued {
     background-color: color("blue-grey", "lighten-4");
   }

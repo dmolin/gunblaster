@@ -88,6 +88,7 @@
     margin-top: 0.2em;
   }
 
+  .status--sent,
   .status--delivered {
     background-color: color("teal", "lighten-2");
   }
@@ -100,7 +101,6 @@
     background-color: color("deep-orange", "accent-2");
   }
 
-  .status--sent,
   .status--not-delivered {
     background-color: color("orange", "lighten-1");
   }
